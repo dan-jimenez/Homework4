@@ -15,7 +15,7 @@ public class Curso {
     // static es un modificador de acceso que define un atributo global
     // final es un modificador de acceso que define un atributo constante
     
-    private ArrayList<Rubro_Evaluacion> evaluaciones = new ArrayList();  
+    private ArrayList<Rubro_Evaluacion> evaluaciones = new ArrayList();
     // el ArrayList representa una colección de objetos y debe declararse e instanciarse.
     
     
@@ -192,4 +192,26 @@ public class Curso {
 
     //--------------------------------------------------------------------------
 
+    public double validarPorcentaje(){
+        double porcentajeMaximo = 100.00;
+        double acumulador = 0;
+        for(Rubro_Evaluacion actual: evaluaciones){
+            acumulador += actual.getPorcentaje();
+        }
+
+        if(acumulador == porcentajeMaximo){
+            System.out.println("La suma de los rubros completa el 100%");
+            return (porcentajeMaximo - acumulador);
+        } else if (acumulador < porcentajeMaximo) {
+            System.out.println("La suma de los rubros es " + acumulador + "%\n");
+            System.out.println("Le faltan " + (porcentajeMaximo - acumulador) + "% para llegar al 100%");
+            return (porcentajeMaximo - acumulador);
+        }else{
+            System.out.println("La suma de los rubros es " + acumulador + "%\n");
+            System.out.println("Tiene un exceso de " + (acumulador-porcentajeMaximo) + "%");
+            return (acumulador-porcentajeMaximo);
+        }
+    }
+
+    //---------------------------------------------------------------------------------------------
 }
