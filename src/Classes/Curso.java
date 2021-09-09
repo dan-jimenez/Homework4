@@ -225,5 +225,32 @@ public class Curso {
         }
         return null;
     }
-    //----------------------------------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------------------
+    //EJERCICIO #3
+    public ArrayList<Rubro_Evaluacion> obtenerRubrosDeTipo(TEvaluacion tipoE)
+    {
+        ArrayList nuevaLista = new ArrayList();
+        for (int i = 0; i < evaluaciones.size(); i++)
+        {
+            Rubro_Evaluacion actual = evaluaciones.get(i);
+            if (actual.getTipo() == tipoE)
+            {
+                nuevaLista.add(actual);
+            }
+        }
+        return nuevaLista;
+    }
+    //---------------------------------------------------------------------------------------------
+    //AUXILIARES PARA EJERCICIOS #6 Y #7
+    public int numeroDeEvaluaciones()
+    {
+        int tamaño = evaluaciones.size();
+        return tamaño;
+    }
+
+    public ArrayList<Rubro_Evaluacion> getEvaluaciones()
+    {
+        return evaluaciones;
+    }
+    //---------------------------------------------------------------------------------------------
 }
