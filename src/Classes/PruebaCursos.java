@@ -127,9 +127,39 @@ public class PruebaCursos {
 
 //-----------------------------------------------------------------------------------------------
 
-        estDatos.registrarResultado(estud, cursoED.consultarRubro(05, "Quiz 3"), 75);
-        estDatos.registrarResultado(estud2, cursoED.consultarRubro(05, "Quiz 3"), 70);
-        estDatos.registrarResultado(estud3, cursoED.consultarRubro(05, "Quiz 3"), 85);
+        if((estDatos.registrarNota(2021138547, "Quiz 3", TEvaluacion.QUIZ, 75))==true){
+            System.out.println("\nNota agregada exitosamente\n");
+        }
+        else{
+            System.out.println("\nError: las notas no se pueden repetir\n");
+        }
+        //----------------------------------------------------------------------------
+        
+        if((estDatos.registrarNota(2020345833, "Quiz 3", TEvaluacion.QUIZ, 70))==true){
+            System.out.println("\nNota agregada exitosamente\n");
+        }
+        else{
+            System.out.println("\nError: las notas no se pueden repetir\n");
+        }
+        //----------------------------------------------------------------------------
+        
+        if((estDatos.registrarNota(2019846840, "Quiz 3", TEvaluacion.QUIZ, 85))==true){
+            System.out.println("\nNota agregada exitosamente\n");
+        }
+        else{
+            System.out.println("\nError: las notas no se pueden repetir\n");
+        }
+        //----------------------------------------------------------------------------
+        
+        if((estDatos.registrarNota(2021138547, "Quiz 3", TEvaluacion.QUIZ, 75))==true){
+            System.out.println("\nNota agregada exitosamente\n");
+        }
+        else{
+            System.out.println("\nError: las notas no se pueden repetir\n");
+        }
+        //----------------------------------------------------------------------------
+        System.out.println("-----------------------------------------------------------------------------------------------\n");
+        
 
 //-----------------------------------------------------------------------------------------------
 
@@ -138,7 +168,9 @@ public class PruebaCursos {
 
         System.out.println(Calculo+"\n");
         System.out.println("-----------------------------------------------------------------------------------------------\n");
-
+        System.out.println(estDatos.getResultados());
+        System.out.println("-----------------------------------------------------------------------------------------------\n");
+                                            
 //---------------------------------------------------------------------------------------------------
 
         System.out.println("Validacion de porcentajes");
