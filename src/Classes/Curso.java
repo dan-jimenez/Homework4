@@ -214,19 +214,15 @@ public class Curso {
     }
 
     //---------------------------------------------------------------------------------------------
-    // Editar para que no haga prints
-
+    
     public Rubro_Evaluacion obtenerInformacionRubro(TEvaluacion tipoRubro, String nombre){
         for(Rubro_Evaluacion actual: evaluaciones){
             if(actual.getTipo() == tipoRubro){
                 if(actual.getNombre() == nombre){
-                    System.out.printf(actual.toString());
-                    System.out.printf("\n");
                     return actual;
                 }
             }
         }
-        System.out.printf("No se encontro el rubro");
         return null;
     }
     //----------------------------------------------------------------------------------------------------------
