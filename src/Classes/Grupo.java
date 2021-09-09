@@ -144,15 +144,25 @@ public class Grupo {
     }
 
     /*--------------------------------------------------------------------------------------------------------
-    E: id del estudiante, nombre del rubro, tipo de rubro y la nota obtenida
+    E: id del estudiante, nombre del rubro, tipo de rubro y la nota obtenida 
     S: si la nota fue registrada o no (true o false)
     R: la nota no debe haber sido registrada anteriormente (no debe existir)*/
-    public boolean registrarResultado(Estudiante unEstudiante, Rubro_Evaluacion unRubro, double nota){
-        for(Calificacion actual : resultados){
-            if (actual.getUnEstudiante()==unEstudiante && actual.getUnaEvaluacion()==unRubro){
-                return false;
+    public boolean registrarNota(int carne, String nombreRubro, TEvaluacion tipo, double nota){
+        for (Calificacion actual2 : resultados){
+            if(actual2.getUnEstudiante().getCarne()==carne && actual2.getUnaEvaluacion().getNombre()==nombreRubro && actual2.getNota()==nota){
+                return false; //en el caso de existir registrado el resultado
             }
         }
+        Estudiante unEstudiante=new Estudiante();
+        for(Estudiante actual3 : estudiantes){
+            if(actual3.getCarne()==carne){
+                unEstudiante=actual3;
+            }
+        }
+        Curso contenedor= getElCurso();
+        Rubro_Evaluacion unRubro=new Rubro_Evaluacion();
+        unRubro=contenedor.obtenerInformacionRubro(tipo, nombreRubro);
+        
         Calificacion calif=new Calificacion(unRubro, unEstudiante, nota);
         resultados.add(calif);
         return true;
