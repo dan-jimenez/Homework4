@@ -1,6 +1,8 @@
 package Classes;
 
 
+import org.w3c.dom.CDATASection;
+
 public class PruebaCursos {
 
     public static void main(String[] args) {System.out.println("Hola Mundo soy nuevo en Java");
@@ -149,6 +151,10 @@ public class PruebaCursos {
 
 //---------------------------------------------------------------------------------------------------------------
 
+        System.out.printf("Buscar rubro \n");
+        cursoCDI.obtenerInformacionRubro(TEvaluacion.QUIZ, "Quiz 3");
+
+        System.out.println("------------------------------------------------------------------------------------ \n");
 
     }
     
