@@ -147,6 +147,7 @@ public class Grupo {
     E: id del estudiante, nombre del rubro, tipo de rubro y la nota obtenida 
     S: si la nota fue registrada o no (true o false)
     R: la nota no debe haber sido registrada anteriormente (no debe existir)*/
+    
     public boolean registrarNota(int carne, String nombreRubro, TEvaluacion tipo, double nota){
         for (Calificacion actual2 : resultados){
             if(actual2.getUnEstudiante().getCarne()==carne && actual2.getUnaEvaluacion().getNombre()==nombreRubro && actual2.getNota()==nota){
@@ -167,6 +168,74 @@ public class Grupo {
         resultados.add(calif);
         return true;
     }
+    //--------------------------------------------------------------------------------------------------------
+    // EJERCICIO #6 - RETORNA double PROMEDIO DE UN ESTUDIANTE PARTICULAR
+    public double promedioDeUnEstudiante(int elCarnet)
+    {
+        int numEvals = getElCurso().numeroDeEvaluaciones();
+        double resultado = 0.0;
+
+        for (int i = 0; i < resultados.size(); i++)
+        {
+            Calificacion actual = resultados.get(i);
+            int temp = actual.getUnEstudiante().getCarne();
+            if (temp==elCarnet)
+            {
+                resultado = resultado + ((actual.getNota()*actual.getUnaEvaluacion().getPorcentaje())/100); //(nota*porcentaje)/100
+            }
+        }
+        return resultado;
+    }
+    
+    //--------------------------------------------------------------------------------------------------------
+    // EJERCICIO #7 - NO RETURN. IMPRIME DESGLOSE DEL PROMEDIO DE UN ESTUDIANTE PARTICULAR.
+    
+    public void desglosePromedioDeUnEstudiante(int elCarnet)
+    {
+        int numEvals = getElCurso().numeroDeEvaluaciones();
+        double resultado = 0.0;
+        ArrayList<Rubro_Evaluacion> evals = getElCurso().getEvaluaciones();
+
+        for (int i = 0; i < estudiantes.size(); i++)
+        {
+            Estudiante temp = estudiantes.get(i);
+            if (temp.getCarne() == elCarnet)
+            {
+                System.out.printf("DESGLOSE DE PROMEDIO\n");
+                System.out.printf("NOMBRE: " + temp.getNombre() + "\n");
+                System.out.printf("CARNET: " + elCarnet + "\n");
+                System.out.printf("\n");
+            }
+        }
+
+        for (int j = 0; j < evals.size(); j++)
+        {
+            boolean flag = false;
+            Rubro_Evaluacion aux1 = evals.get(j);
+            System.out.printf(aux1.getNombre()+": ");
+
+            for (int k = 0; k < resultados.size(); k++)
+            {
+                Calificacion aux2 = resultados.get(k);
+                if (elCarnet==aux2.getUnEstudiante().getCarne())
+                {
+                    if (aux2.getUnaEvaluacion().getNombre() == aux1.getNombre())
+                    {
+                        System.out.printf(""+aux2.getNota()+" : " + "Porcentaje: " +aux1.getPorcentaje()+"\n");
+                        resultado = resultado+((aux2.getNota()*aux2.getUnaEvaluacion().getPorcentaje())/100); //(nota*porcentaje)/100
+                        flag = true;
+                    }
+                }
+            }
+
+            if (flag == false)
+            {
+                System.out.printf("0.0 : " + "Porcentaje: " + aux1.getPorcentaje()+ "\n");
+            }
+        }
+        System.out.printf("Promedio: "+ resultado + "\n");
+    }
+
     //--------------------------------------------------------------------------------------------------------
 
 }
