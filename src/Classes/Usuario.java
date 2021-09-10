@@ -7,10 +7,6 @@ package Classes;
 
 import java.util.Calendar;
 
-/**
- *
- * @author ersolano
- */
 public class Usuario {
     // sintaxis de un atributo
     // visibilidad tipoDate identificador;

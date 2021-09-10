@@ -5,10 +5,6 @@
  */
 package Classes;
 
-/**
- *
- * @author ersolano
- */
 public class Rubro_Evaluacion {
     private int num;
     private String nombre;
