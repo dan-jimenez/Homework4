@@ -168,7 +168,7 @@ public class PruebaCursos {
 
         System.out.println(Calculo+"\n");
         System.out.println("-----------------------------------------------------------------------------------------------\n");
-        System.out.println(estDatos.getResultados());
+        //System.out.println(estDatos.getResultados());
         System.out.println("-----------------------------------------------------------------------------------------------\n");
                                             
 //---------------------------------------------------------------------------------------------------
